@@ -9,17 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        KeychainService.savePassword(token: "Pa55worD")
+        
+        let password = KeychainService.loadPassword()
+        let gg =   KeychainService.clear()
+        let dd =  KeychainService.delete(key: password as! String)
+        print(gg)
+        print(dd)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
