@@ -11,6 +11,7 @@
 import Foundation
 import Security
 
+
 // Constant Identifiers
 let userAccount = "AuthenticatedUser"
 let accessGroup = "SecuritySerivice"
@@ -23,16 +24,18 @@ let accessGroup = "SecuritySerivice"
 
 let passwordKey = "KeyForPassword"
 
-// Arguments for the keychain queries
-let kSecClassValue = NSString(format: kSecClass)
-let kSecAttrAccountValue = NSString(format: kSecAttrAccount)
-let kSecValueDataValue = NSString(format: kSecValueData)
-let kSecClassGenericPasswordValue = NSString(format: kSecClassGenericPassword)
-let kSecAttrServiceValue = NSString(format: kSecAttrService)
-let kSecMatchLimitValue = NSString(format: kSecMatchLimit)
-let kSecReturnDataValue = NSString(format: kSecReturnData)
-let kSecMatchLimitOneValue = NSString(format: kSecMatchLimitOne)
 
+// Arguments for the keychain queries
+struct keyChain {
+static let kSecClassValue = NSString(format: kSecClass)
+static let kSecAttrAccountValue = NSString(format: kSecAttrAccount)
+static let kSecValueDataValue = NSString(format: kSecValueData)
+static let kSecClassGenericPasswordValue = NSString(format: kSecClassGenericPassword)
+static let kSecAttrServiceValue = NSString(format: kSecAttrService)
+static let kSecMatchLimitValue = NSString(format: kSecMatchLimit)
+static let kSecReturnDataValue = NSString(format: kSecReturnData)
+static let kSecMatchLimitOneValue = NSString(format: kSecMatchLimitOne)
+}
 public class KeychainService: NSObject {
     
     /**
@@ -47,6 +50,11 @@ public class KeychainService: NSObject {
     public class func loadPassword() -> NSString? {
         return self.load(service: passwordKey as NSString)
     }
+    
+    public class func remove(token: NSString) -> NSString? {
+        return self.remove(service: passwordKey as NSString)
+    }
+
     
     class func clear() -> Bool {
         let query = [ kSecClass as String : kSecClassGenericPassword ]
@@ -74,7 +82,7 @@ public class KeychainService: NSObject {
         let dataFromString: NSData = data.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)! as NSData
         
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, userAccount, dataFromString], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecValueDataValue])
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, dataFromString], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecValueDataValue])
         
         //既存のアイテムをすべて削除する
         SecItemDelete(keychainQuery as CFDictionary)
@@ -87,7 +95,7 @@ public class KeychainService: NSObject {
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         // 結果を返すようにクエリに指示する
         //結果を1つのアイテムに限定する
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, kSecMatchLimitOneValue], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecReturnDataValue, kSecMatchLimitValue])
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
         
         var dataTypeRef :AnyObject?
         
@@ -105,4 +113,28 @@ public class KeychainService: NSObject {
         
         return contentsOfKeychain
     }
+    
+    private class func remove(service: NSString) -> NSString? {
+        // 新しいデフォルトのキーチェーンクエリをインスタンス化する
+        // 結果を返すようにクエリに指示する
+        //結果を1つのアイテムに限定する
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
+        
+        var dataTypeRef :AnyObject?
+        
+        // キーチェーンアイテムを検索する
+        let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
+        var contentsOfKeychain: NSString? = nil
+        
+        if status == errSecSuccess {
+            if let retrievedData = dataTypeRef as? NSData {
+                contentsOfKeychain = NSString(data: retrievedData as Data, encoding: String.Encoding.utf8.rawValue)
+            }
+        } else {
+            print("Nothing was retrieved from the keychain. Status code \(status)")
+        }
+        contentsOfKeychain = nil
+        return contentsOfKeychain
+    }
+
 }
