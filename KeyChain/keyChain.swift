@@ -43,16 +43,16 @@ public class KeychainService: NSObject {
      */
     
     
-    public class func savePassword(token: NSString) {
-        self.save(service: passwordKey as NSString, data: token)
+    public class func savePassword(token: String) {
+        self.save(service: passwordKey as String, data: token)
     }
     
-    public class func loadPassword() -> NSString? {
-        return self.load(service: passwordKey as NSString)
+    public class func loadPassword() -> String? {
+        return self.load(service: passwordKey ) as String?
     }
     
-    public class func remove(token: NSString) -> NSString? {
-        return self.remove(service: passwordKey as NSString)
+    public class func remove(token: String) -> String? {
+        return self.remove(service: passwordKey )
     }
 
     
@@ -78,8 +78,8 @@ public class KeychainService: NSObject {
      * キーチェーンを照会するための内部メソッド。
      */
     
-    private class func save(service: NSString, data: NSString) {
-        let dataFromString: NSData = data.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)! as NSData
+    private class func save(service: String, data: String) {
+        let dataFromString: Data = data.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue), allowLossyConversion: false)! as Data
         
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, dataFromString], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecValueDataValue])
@@ -91,7 +91,7 @@ public class KeychainService: NSObject {
         SecItemAdd(keychainQuery as CFDictionary, nil)
     }
     
-    private class func load(service: NSString) -> NSString? {
+    private class func load(service: String) -> String? {
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         // 結果を返すようにクエリに指示する
         //結果を1つのアイテムに限定する
@@ -101,11 +101,11 @@ public class KeychainService: NSObject {
         
         // キーチェーンアイテムを検索する
         let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
-        var contentsOfKeychain: NSString? = nil
+        var contentsOfKeychain: String? = nil
         
         if status == errSecSuccess {
-            if let retrievedData = dataTypeRef as? NSData {
-                contentsOfKeychain = NSString(data: retrievedData as Data, encoding: String.Encoding.utf8.rawValue)
+            if let retrievedData = dataTypeRef as? Data {
+                contentsOfKeychain = String(data: retrievedData as Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
             }
         } else {
             print("Nothing was retrieved from the keychain. Status code \(status)")
@@ -114,7 +114,7 @@ public class KeychainService: NSObject {
         return contentsOfKeychain
     }
     
-    private class func remove(service: NSString) -> NSString? {
+    private class func remove(service: String) -> String? {
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         // 結果を返すようにクエリに指示する
         //結果を1つのアイテムに限定する
@@ -124,17 +124,17 @@ public class KeychainService: NSObject {
         
         // キーチェーンアイテムを検索する
         let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
-        var contentsOfKeychain: NSString? = nil
+        var contentsOfKeychain: String? = nil
         
         if status == errSecSuccess {
-            if let retrievedData = dataTypeRef as? NSData {
-                contentsOfKeychain = NSString(data: retrievedData as Data, encoding: String.Encoding.utf8.rawValue)
+            if let retrievedData = dataTypeRef as? Data {
+                contentsOfKeychain = String(data: retrievedData as Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
             }
         } else {
             print("Nothing was retrieved from the keychain. Status code \(status)")
         }
         contentsOfKeychain = nil
-        return contentsOfKeychain
+        return contentsOfKeychain as String?
     }
 
 }
