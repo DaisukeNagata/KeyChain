@@ -13,15 +13,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        KeychainService.savePassword(token: "Pa55worD")
-        KeychainService.savePassword(token: "Pa55worDD")
+//        KeychainService.savePassword(token: "Pa55worD")
+//        KeychainService.savePassword(token: "Pa55worDD")
         
         let ss = KeychainService.loadPassword()
         let sds = KeychainService.delete(key: "")
   
         let ddd = KeychainService.remove(token: ss!)
         print(ddd)
-        print(sds)
+        print(ss)
     }
     
     override func didReceiveMemoryWarning() {

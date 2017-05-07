@@ -15,14 +15,14 @@ import Security
 // Constant Identifiers
 let userAccount = "AuthenticatedUser"
 let accessGroup = "SecuritySerivice"
-
+let passwordKey = "KeyForPassword"
 
 /**
  * 新規エントリ用のユーザー定義キー
  *注：新しい安全なアイテムの新しいキーを追加し、ロードおよび保存メソッドで使用します
  */
 
-let passwordKey = "KeyForPassword"
+
 
 
 // Arguments for the keychain queries

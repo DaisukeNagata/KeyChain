@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB3DDCF31EBFC4140017AC72 /* Keyçhain2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */; };
+		BB3DDCF51EBFC5EB0017AC72 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DDCF41EBFC5EB0017AC72 /* Segue.swift */; };
 		BB6507111E75893200354E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507101E75893200354E4E /* AppDelegate.swift */; };
 		BB6507131E75893200354E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507121E75893200354E4E /* ViewController.swift */; };
 		BB6507161E75893200354E4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6507141E75893200354E4E /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyçhain2.swift"; sourceTree = "<group>"; };
+		BB3DDCF41EBFC5EB0017AC72 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		BB65070D1E75893200354E4E /* KeyChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6507101E75893200354E4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB6507121E75893200354E4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		BB6507041E75893200354E4E = {
 			isa = PBXGroup;
 			children = (
+				BB3DDCF41EBFC5EB0017AC72 /* Segue.swift */,
 				BB65070F1E75893200354E4E /* KeyChain */,
 				BB6507241E75893200354E4E /* KeyChainTests */,
 				BB65072F1E75893200354E4E /* KeyChainUITests */,
@@ -102,6 +107,7 @@
 				BB6507101E75893200354E4E /* AppDelegate.swift */,
 				BB6507121E75893200354E4E /* ViewController.swift */,
 				BB65073E1E75893A00354E4E /* keyChain.swift */,
+				BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */,
 				BB6507141E75893200354E4E /* Main.storyboard */,
 				BB6507171E75893200354E4E /* Assets.xcassets */,
 				BB6507191E75893200354E4E /* LaunchScreen.storyboard */,
@@ -265,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB3DDCF31EBFC4140017AC72 /* Keyçhain2.swift in Sources */,
 				BB65073F1E75893A00354E4E /* keyChain.swift in Sources */,
 				BB6507131E75893200354E4E /* ViewController.swift in Sources */,
+				BB3DDCF51EBFC5EB0017AC72 /* Segue.swift in Sources */,
 				BB6507111E75893200354E4E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +526,7 @@
 				BB6507371E75893200354E4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB6507381E75893200354E4E /* Build configuration list for PBXNativeTarget "KeyChainTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +535,7 @@
 				BB65073A1E75893200354E4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB65073B1E75893200354E4E /* Build configuration list for PBXNativeTarget "KeyChainUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +544,7 @@
 				BB65073D1E75893200354E4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
