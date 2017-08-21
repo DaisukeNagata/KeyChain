@@ -21,12 +21,9 @@ let passwordKey = "KeyForPassword"
  * 新規エントリ用のユーザー定義キー
  *注：新しい安全なアイテムの新しいキーを追加し、ロードおよび保存メソッドで使用します
  */
-
-
-
-
 // Arguments for the keychain queries
 struct keyChain {
+    
 static let kSecClassValue = NSString(format: kSecClass)
 static let kSecAttrAccountValue = NSString(format: kSecAttrAccount)
 static let kSecValueDataValue = NSString(format: kSecValueData)
@@ -35,6 +32,7 @@ static let kSecAttrServiceValue = NSString(format: kSecAttrService)
 static let kSecMatchLimitValue = NSString(format: kSecMatchLimit)
 static let kSecReturnDataValue = NSString(format: kSecReturnData)
 static let kSecMatchLimitOneValue = NSString(format: kSecMatchLimitOne)
+    
 }
 public class KeychainService: NSObject {
     

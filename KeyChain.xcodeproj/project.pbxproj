@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB3DDCF31EBFC4140017AC72 /* Keyçhain2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */; };
-		BB3DDCF51EBFC5EB0017AC72 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DDCF41EBFC5EB0017AC72 /* Segue.swift */; };
+		BB55701F1F4B56D200C09765 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55701E1F4B56D200C09765 /* Segue.swift */; };
 		BB6507111E75893200354E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507101E75893200354E4E /* AppDelegate.swift */; };
 		BB6507131E75893200354E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507121E75893200354E4E /* ViewController.swift */; };
 		BB6507161E75893200354E4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6507141E75893200354E4E /* Main.storyboard */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyçhain2.swift"; sourceTree = "<group>"; };
-		BB3DDCF41EBFC5EB0017AC72 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
+		BB55701E1F4B56D200C09765 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segue.swift; path = KeyChain/Segue.swift; sourceTree = "<group>"; };
 		BB65070D1E75893200354E4E /* KeyChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6507101E75893200354E4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB6507121E75893200354E4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		BB6507041E75893200354E4E = {
 			isa = PBXGroup;
 			children = (
-				BB3DDCF41EBFC5EB0017AC72 /* Segue.swift */,
+				BB55701E1F4B56D200C09765 /* Segue.swift */,
 				BB65070F1E75893200354E4E /* KeyChain */,
 				BB6507241E75893200354E4E /* KeyChainTests */,
 				BB65072F1E75893200354E4E /* KeyChainUITests */,
@@ -272,9 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB3DDCF31EBFC4140017AC72 /* Keyçhain2.swift in Sources */,
+				BB55701F1F4B56D200C09765 /* Segue.swift in Sources */,
 				BB65073F1E75893A00354E4E /* keyChain.swift in Sources */,
 				BB6507131E75893200354E4E /* ViewController.swift in Sources */,
-				BB3DDCF51EBFC5EB0017AC72 /* Segue.swift in Sources */,
 				BB6507111E75893200354E4E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

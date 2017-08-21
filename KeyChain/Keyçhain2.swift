@@ -107,21 +107,21 @@ public class TateruKeyChainService: NSObject {
         return self.load(service: addressKey)
     }
     
-    //    //認証Tokenの削除
-    //    public class func passwordRemove(token:String)->String?
-    //    {
-    //        return self.remove(service: token)
-    //    }
-    //
-    //    //メールの削除
-    //    public class func mailKeyRemove(token:String)->String?{
-    //        return self.remove(service: token)
-    //
-    //    }
-    //    //アドレスの削除
-    //    public class func addressRemove(token:String)->String?{
-    //        return self.remove(service: token)
-    //    }
+        //認証Tokenの削除
+        public class func passwordRemove(token:String)->String?
+        {
+            return self.remove(service: token)
+        }
+    
+        //メールの削除
+        public class func mailKeyRemove(token:String)->String?{
+            return self.remove(service: token)
+    
+        }
+        //アドレスの削除
+        public class func addressRemove(token:String)->String?{
+            return self.remove(service: token)
+        }
     
     class func clear() -> Bool {
         let query = [ kSecClass as String : kSecClassGenericPassword ]
@@ -191,29 +191,29 @@ public class TateruKeyChainService: NSObject {
         return contentsOfKeychain
     }
     
-    //    private class func remove(service: String) -> String? {
-    //        // 新しいデフォルトのキーチェーンクエリをインスタンス化する
-    //        // 結果を返すようにクエリに指示する
-    //        //結果を1つのアイテムに限定する
-    //        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
-    //
-    //        var dataTypeRef :AnyObject?
-    //
-    //
-    //        // キーチェーンアイテムを検索する
-    //        let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
-    //        var contentsOfKeychain: String?
-    //
-    //        if status == errSecSuccess {
-    //            if let retrievedData = dataTypeRef as? NSData {
-    //                contentsOfKeychain = String(data: retrievedData as Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
-    //            }
-    //        } else {
-    //            print("Nothing was retrieved from the keychain. Status code \(status)")
-    //        }
-    //        
-    //        contentsOfKeychain?.removeAll()
-    //        return contentsOfKeychain
-    //        
-    //    }
+        private class func remove(service: String) -> String? {
+            // 新しいデフォルトのキーチェーンクエリをインスタンス化する
+            // 結果を返すようにクエリに指示する
+            //結果を1つのアイテムに限定する
+            let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
+    
+            var dataTypeRef :AnyObject?
+    
+    
+            // キーチェーンアイテムを検索する
+            let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
+            var contentsOfKeychain: String?
+    
+            if status == errSecSuccess {
+                if let retrievedData = dataTypeRef as? NSData {
+                    contentsOfKeychain = String(data: retrievedData as Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+                }
+            } else {
+                print("Nothing was retrieved from the keychain. Status code \(status)")
+            }
+            
+            contentsOfKeychain?.removeAll()
+            return contentsOfKeychain
+            
+        }
 }
