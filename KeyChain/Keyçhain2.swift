@@ -24,18 +24,6 @@ let passwordkey = "passwordkey"
 let mailKey = "mailKey"
 let addressKey = "addressKey"
 
-// Arguments for the keychain queries
-//struct keyChain {
-//    static let kSecClassValue = NSString(format: kSecClass)
-//    static let kSecAttrAccountValue = NSString(format: kSecAttrAccount)
-//    static let kSecValueDataValue = NSString(format: kSecValueData)
-//    static let kSecClassGenericPasswordValue = NSString(format: kSecClassGenericPassword)
-//    static let kSecAttrServiceValue = NSString(format: kSecAttrService)
-//    static let kSecMatchLimitValue = NSString(format: kSecMatchLimit)
-//    static let kSecReturnDataValue = NSString(format: kSecReturnData)
-//    static let kSecMatchLimitOneValue = NSString(format: kSecMatchLimitOne)
-//}
-
 enum keyChain2{
     case kSecClassValue
     case kSecAttrAccountValue
