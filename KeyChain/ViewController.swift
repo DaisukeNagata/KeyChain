@@ -17,10 +17,10 @@ class ViewController: UIViewController {
       
         let key = KeychainService.loadPassword()
         let chain = KeychainService.delete(key: "")
-        let key2 = KeychainService.remove(token: key!)
+        let key2 = KeychainService.remove(token: key ?? "")
         print(key!)
         print(chain)
-        print(key2)
+        print(key2 ?? "" )
     }
     
     override func didReceiveMemoryWarning() {

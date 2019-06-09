@@ -93,7 +93,7 @@ public class KeychainService: NSObject {
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         // 結果を返すようにクエリに指示する
         //結果を1つのアイテムに限定する
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue ?? false, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
         
         var dataTypeRef :AnyObject?
         
@@ -116,7 +116,7 @@ public class KeychainService: NSObject {
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         // 結果を返すようにクエリに指示する
         //結果を1つのアイテムに限定する
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue ?? false, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
         
         var dataTypeRef :AnyObject?
         

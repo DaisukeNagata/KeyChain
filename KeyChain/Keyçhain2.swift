@@ -155,7 +155,7 @@ public class TateruKeyChainService: NSObject {
         let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects:
             
             [ keyChain2.self.kSecClassGenericPasswordValue.dd(),
-              service, userAccount, kCFBooleanTrue,  keyChain2.self.kSecMatchLimitOneValue.dd()],
+              service, userAccount, kCFBooleanTrue ?? false,  keyChain2.self.kSecMatchLimitOneValue.dd()],
                                                                      forKeys: [ keyChain2.self.kSecClassValue.dd(),
                                                                                 keyChain2.self.kSecAttrServiceValue.dd(),
                                                                                 keyChain2.self.kSecAttrAccountValue.dd(),
@@ -183,7 +183,7 @@ public class TateruKeyChainService: NSObject {
             // 新しいデフォルトのキーチェーンクエリをインスタンス化する
             // 結果を返すようにクエリに指示する
             //結果を1つのアイテムに限定する
-            let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
+            let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue ?? false, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
     
             var dataTypeRef :AnyObject?
     
