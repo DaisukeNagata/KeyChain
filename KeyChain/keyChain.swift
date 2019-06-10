@@ -11,7 +11,6 @@
 import Foundation
 import Security
 
-
 // Constant Identifiers
 let userAccount = "AuthenticatedUser"
 let accessGroup = "SecuritySerivice"
@@ -32,33 +31,24 @@ static let kSecAttrServiceValue = NSString(format: kSecAttrService)
 static let kSecMatchLimitValue = NSString(format: kSecMatchLimit)
 static let kSecReturnDataValue = NSString(format: kSecReturnData)
 static let kSecMatchLimitOneValue = NSString(format: kSecMatchLimitOne)
-    
 }
+
 public class KeychainService: NSObject {
     
     /**
      * 保存クエリと負荷クエリを実行する方法が公開されています。
      */
     
+    public class func savePassword(token: String) { self.save(service: passwordKey as String, data: token) }
     
-    public class func savePassword(token: String) {
-        self.save(service: passwordKey as String, data: token)
-    }
+    public class func loadPassword() -> String? { return self.load(service: passwordKey ) as String? }
     
-    public class func loadPassword() -> String? {
-        return self.load(service: passwordKey ) as String?
-    }
-    
-    public class func remove(token: String) -> String? {
-        return self.remove(service: passwordKey )
-    }
+    public class func remove(token: String) -> String? { return self.remove(service: passwordKey ) }
 
-    
     class func clear() -> Bool {
         let query = [ kSecClass as String : kSecClassGenericPassword ]
-        
         let status: OSStatus = SecItemDelete(query as CFDictionary)
-        
+
         return status == noErr
     }
     
@@ -75,32 +65,30 @@ public class KeychainService: NSObject {
     /**
      * キーチェーンを照会するための内部メソッド。
      */
-    
+
     private class func save(service: String, data: String) {
         let dataFromString: Data = data.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue), allowLossyConversion: false)! as Data
-        
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, dataFromString], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecValueDataValue])
-        
+
         //既存のアイテムをすべて削除する
         SecItemDelete(keychainQuery as CFDictionary)
-        
         // 新しいキーチェーンアイテムを追加する
         SecItemAdd(keychainQuery as CFDictionary, nil)
     }
-    
+
     private class func load(service: String) -> String? {
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         // 結果を返すようにクエリに指示する
         //結果を1つのアイテムに限定する
         let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue ?? false, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
-        
+
         var dataTypeRef :AnyObject?
-        
+
         // キーチェーンアイテムを検索する
         let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
         var contentsOfKeychain: String? = nil
-        
+
         if status == errSecSuccess {
             if let retrievedData = dataTypeRef as? Data {
                 contentsOfKeychain = String(data: retrievedData as Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
@@ -108,22 +96,22 @@ public class KeychainService: NSObject {
         } else {
             print("Nothing was retrieved from the keychain. Status code \(status)")
         }
-        
+
         return contentsOfKeychain
     }
-    
+
     private class func remove(service: String) -> String? {
         // 新しいデフォルトのキーチェーンクエリをインスタンス化する
         // 結果を返すようにクエリに指示する
         //結果を1つのアイテムに限定する
         let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [keyChain.kSecClassGenericPasswordValue, service, userAccount, kCFBooleanTrue ?? false, keyChain.kSecMatchLimitOneValue], forKeys: [keyChain.kSecClassValue, keyChain.kSecAttrServiceValue, keyChain.kSecAttrAccountValue, keyChain.kSecReturnDataValue, keyChain.kSecMatchLimitValue])
-        
+
         var dataTypeRef :AnyObject?
-        
+
         // キーチェーンアイテムを検索する
         let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
         var contentsOfKeychain: String? = nil
-        
+
         if status == errSecSuccess {
             if let retrievedData = dataTypeRef as? Data {
                 contentsOfKeychain = String(data: retrievedData as Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))

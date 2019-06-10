@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         KeychainService.savePassword(token: "Pa55worD")
-      
+
         let key = KeychainService.loadPassword()
         let chain = KeychainService.delete(key: "")
         let key2 = KeychainService.remove(token: key ?? "")
@@ -22,10 +22,5 @@ class ViewController: UIViewController {
         print(chain)
         print(key2 ?? "" )
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-}
 
+}
