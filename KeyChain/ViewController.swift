@@ -16,11 +16,13 @@ class ViewController: UIViewController {
         KeychainService.savePassword(token: "Pa55worD")
 
         let key = KeychainService.loadPassword()
-        let chain = KeychainService.delete(key: "")
-        let key2 = KeychainService.remove(token: key ?? "")
+        let chain = KeychainService.delete(key: key ?? "")
+        let remove = KeychainService.remove(token: key ?? "")
+        let loadPassword = KeychainService.loadPassword()
         print(key!)
         print(chain)
-        print(key2 ?? "" )
+        print(remove ?? "")
+        print(loadPassword ?? "")
     }
 
 }
