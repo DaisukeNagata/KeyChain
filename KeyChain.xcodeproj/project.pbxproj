@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB3DDCF31EBFC4140017AC72 /* Keyçhain2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */; };
 		BB55701F1F4B56D200C09765 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55701E1F4B56D200C09765 /* Segue.swift */; };
 		BB6507111E75893200354E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507101E75893200354E4E /* AppDelegate.swift */; };
 		BB6507131E75893200354E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507121E75893200354E4E /* ViewController.swift */; };
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyçhain2.swift"; sourceTree = "<group>"; };
 		BB55701E1F4B56D200C09765 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segue.swift; path = KeyChain/Segue.swift; sourceTree = "<group>"; };
 		BB65070D1E75893200354E4E /* KeyChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6507101E75893200354E4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				BB6507101E75893200354E4E /* AppDelegate.swift */,
 				BB6507121E75893200354E4E /* ViewController.swift */,
 				BB65073E1E75893A00354E4E /* keyChain.swift */,
-				BB3DDCF21EBFC4140017AC72 /* Keyçhain2.swift */,
 				BB6507141E75893200354E4E /* Main.storyboard */,
 				BB6507171E75893200354E4E /* Assets.xcassets */,
 				BB6507191E75893200354E4E /* LaunchScreen.storyboard */,
@@ -274,7 +271,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB3DDCF31EBFC4140017AC72 /* Keyçhain2.swift in Sources */,
 				BB55701F1F4B56D200C09765 /* Segue.swift in Sources */,
 				BB65073F1E75893A00354E4E /* keyChain.swift in Sources */,
 				BB6507131E75893200354E4E /* ViewController.swift in Sources */,

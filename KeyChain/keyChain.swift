@@ -32,19 +32,19 @@ struct keyChain {
     static let kSecClassGenericPasswordValue = NSString(format: kSecClassGenericPassword)
 }
 
-public class KeychainService: NSObject {
+class KeychainService: NSObject {
     
     /**
      * 保存クエリと負荷クエリを実行する方法が公開されています。
      */
     
-    public class func savePassword(token: String) { self.save(service: passwordKey as String, data: token) }
+    class func savePassword(token: String) { self.save(service: passwordKey as String, data: token) }
     
-    public class func loadPassword() -> String? { return self.load(service: passwordKey ) as String? }
+    class func loadPassword() -> String? { return self.load(service: passwordKey ) as String? }
     
-    public class func remove(token: String) -> String? { return self.remove(service: passwordKey ) }
+    class func remove(token: String) -> String? { return self.remove(service: passwordKey ) }
     
-    public class func delete(key: String) -> Bool { return clear() }
+    class func delete(key: String) -> Bool { return clear() }
 
     /**
      * キーチェーンを照会するための内部メソッド。
