@@ -15,7 +15,7 @@
 		BB65071B1E75893200354E4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6507191E75893200354E4E /* LaunchScreen.storyboard */; };
 		BB6507261E75893200354E4E /* KeyChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507251E75893200354E4E /* KeyChainTests.swift */; };
 		BB6507311E75893200354E4E /* KeyChainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6507301E75893200354E4E /* KeyChainUITests.swift */; };
-		BB65073F1E75893A00354E4E /* keyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65073E1E75893A00354E4E /* keyChain.swift */; };
+		BB65073F1E75893A00354E4E /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65073E1E75893A00354E4E /* KeyChain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		BB65072C1E75893200354E4E /* KeyChainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyChainUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6507301E75893200354E4E /* KeyChainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainUITests.swift; sourceTree = "<group>"; };
 		BB6507321E75893200354E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB65073E1E75893A00354E4E /* keyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyChain.swift; sourceTree = "<group>"; };
+		BB65073E1E75893A00354E4E /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 			children = (
 				BB6507101E75893200354E4E /* AppDelegate.swift */,
 				BB6507121E75893200354E4E /* ViewController.swift */,
-				BB65073E1E75893A00354E4E /* keyChain.swift */,
+				BB65073E1E75893A00354E4E /* KeyChain.swift */,
 				BB6507141E75893200354E4E /* Main.storyboard */,
 				BB6507171E75893200354E4E /* Assets.xcassets */,
 				BB6507191E75893200354E4E /* LaunchScreen.storyboard */,
@@ -272,7 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB55701F1F4B56D200C09765 /* Segue.swift in Sources */,
-				BB65073F1E75893A00354E4E /* keyChain.swift in Sources */,
+				BB65073F1E75893A00354E4E /* KeyChain.swift in Sources */,
 				BB6507131E75893200354E4E /* ViewController.swift in Sources */,
 				BB6507111E75893200354E4E /* AppDelegate.swift in Sources */,
 			);
