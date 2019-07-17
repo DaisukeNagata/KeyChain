@@ -9,17 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    var key = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        KeychainService.savePassword(token: "Pa55worD")
+        KeychainService.savePassword(token: "loadPassword")
 
-        let key = KeychainService.loadPassword()
-        let chain = KeychainService.delete(key: key ?? "")
-        let remove = KeychainService.remove(token: key ?? "")
+        let chain = KeychainService.delete(key: key )
+        let remove = KeychainService.remove(token: key )
         let loadPassword = KeychainService.loadPassword()
-        print(key!)
+        key = KeychainService.loadPassword() ?? ""
+        print(key, "1111")
         print(chain)
         print(remove ?? "")
         print(loadPassword ?? "")
